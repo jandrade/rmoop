@@ -12,12 +12,12 @@
  * @example
  * this.extend(SuperClass)
  */
-Object.prototype.extend = function () {
+Object.prototype.extend = function() {
 	var args = arguments,
 		i = args.length,
 		inst,
 		obj = {};
-		
+
 	while (i-- > 0) {
 		inst = new args[i]();
 		inst.super = {};
@@ -28,7 +28,7 @@ Object.prototype.extend = function () {
 			}
 		}
 	}
-	
+
 	return obj;
 };
 
@@ -43,7 +43,7 @@ Object.prototype.extend = function () {
  * this.exports({});
  * this.exports(this);
  */
-Object.prototype.exports = function (scope, explicitMethods) {
+Object.prototype.exports = function(scope, explicitMethods) {
 	var i,
 		exportedObj = {};
 
@@ -51,7 +51,7 @@ Object.prototype.exports = function (scope, explicitMethods) {
 	for (i in scope) {
 		if (scope.hasOwnProperty(i)) {
 			exportedObj[i] = scope[i];
-		}	
+		}
 	}
 
 	//	merge exposed public methods with the scope
@@ -62,14 +62,14 @@ Object.prototype.exports = function (scope, explicitMethods) {
 			}
 		}
 	}
-	
+
 	//	if this Module has an Interface(s),  we need to validate the implementation(s)
 	if (typeof this.implementation !== 'undefined') {
 		for (i in this.implementation) {
 			//	verify contract
 			if (this.implementation.hasOwnProperty(i) && typeof exportedObj[i] === 'undefined') {
 				throw new Error("Interface Error > You must implement: " + i);
-			} 
+			}
 			//	types should be the same
 			if (typeof this.implementation[i] !== typeof exportedObj[i]) {
 				throw new TypeError('Interface Error > ' + i + ' must be a ' + (typeof this.implementation[i]));
@@ -78,7 +78,7 @@ Object.prototype.exports = function (scope, explicitMethods) {
 
 		delete this.implementation;
 	}
-	
+
 	return exportedObj;
 };
 
@@ -88,12 +88,12 @@ Object.prototype.exports = function (scope, explicitMethods) {
  *
  * @example
  * var IExample = {
- * 	execute
+ * execute
  * };
  *
  * this.implement(IExample);
  */
-Object.prototype.implement = function (_interface) {
+Object.prototype.implement = function(_interface) {
 	var i;
 
 	this.implementation = {};
