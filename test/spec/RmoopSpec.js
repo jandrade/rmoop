@@ -1,22 +1,21 @@
 /*globals console:false, spyOn:false, describe:false, it:false, expect:false, beforeEach:false */
 /* jshint strict: true */
 var Module,
-			ExportsModule,
-			ExtendsModule,
-			moduleInstance,
-			TwoLevelModule,
-			IExample = {
-				test: function() {}
-			};
+	ExportsModule,
+	ExtendsModule,
+	moduleInstance,
+	TwoLevelModule,
+	IExample = {
+		test: function() {}
+	};
 
 (function() {
 	'use strict';
 
 	describe("RMOOP", function() {
-		
-		
-	
-		
+
+
+
 		beforeEach(function() {
 			Module = function() {
 				//	implements an interface
@@ -30,7 +29,7 @@ var Module,
 			};
 
 			ExportsModule = function() {
-				
+
 				function test() {
 					return true;
 				}
@@ -93,7 +92,7 @@ var Module,
 			expect(moduleInstance.test).toBeDefined();
 
 		});
-		
+
 	});
 
 }());
