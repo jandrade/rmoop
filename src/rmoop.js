@@ -1,7 +1,7 @@
 /**
  * @fileOverview Javascript Library to add multiple inheritance and interfaces to Modules
  * @author Juan Andrade <juandavidandrade@gmail.com>
- * @version 0.5
+ * @version 0.5.0
  */
 
 /**
