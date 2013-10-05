@@ -25,9 +25,13 @@ Object.prototype.extend = function() {
 		for (var prop in inst) {
 			if (inst.hasOwnProperty(prop)) {
 				obj[prop] = inst[prop];
+				//	make public methods
+				this[prop] = inst[prop];
 			}
 		}
 	}
+
+
 
 	return obj;
 };
